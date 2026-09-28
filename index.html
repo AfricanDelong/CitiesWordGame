@@ -235,8 +235,31 @@ h2{font-size:clamp(1rem, 4vw, 1.5rem);}
   display:flex; align-items:center; justify-content:center;
   transition:transform .1s;
   flex-shrink:0;
+  line-height:1;
 }
 .icon-btn:active{transform:scale(.94);}
+
+/* === Кнопка «Назад» в игре: убираем боковые паддинги, стрелка строго по центру === */
+#btnBackGame{
+  padding:0;
+  font-size:1.35rem;
+  font-weight:700;
+  line-height:1;
+  text-align:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* На мобильных делаем стрелку белой и кнопку в стиле остальных иконок шапки */
+@media (max-width: 768px){
+  #btnBackGame{
+    color:#ffffff !important;
+    background:linear-gradient(135deg,#4a525c,#2b3037);
+    border-color:rgba(255,255,255,.25);
+    text-shadow:0 1px 3px rgba(0,0,0,.4);
+  }
+}
 
 .help-fab{
   position: fixed;
@@ -521,6 +544,7 @@ body:not(.game-active) .help-fab{ display:none; }
   #app{padding:10px; padding-top:calc(10px + var(--sat)); padding-bottom:calc(10px + var(--sab));}
   .btn{font-size:.92rem; padding:13px 20px; min-height:48px;}
   .icon-btn{min-width:40px; height:40px; font-size:1.05rem;}
+  #btnBackGame{font-size:1.25rem;}
   .level-btn{min-height:48px; font-size:1rem;}
   .level-grid{gap:6px;}
   #levelTitle{font-size:.9rem;}
@@ -1134,7 +1158,6 @@ function levelComplete(){
   const wasNew = !completed.has(curLevel);
   completed.add(curLevel);
 
-  // 🎁 Награда: +1 подсказка за каждое прохождение уровня
   hintsLeft++;
   updateHintUI();
 
