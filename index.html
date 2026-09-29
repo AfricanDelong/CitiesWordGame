@@ -238,7 +238,6 @@ h2{font-size:clamp(1rem, 4vw, 1.5rem);}
 }
 .icon-btn:active{transform:scale(.94);}
 
-/* Стрелка «Назад»: убираем боковые паддинги, чтобы символ был по центру */
 #btnBackGame{
   padding:0;
   font-size:1.35rem;
@@ -378,7 +377,7 @@ body:not(.game-active) .help-fab{ display:none; }
   text-align:center;
   min-width:0;
   line-height:1;
-  padding:2px 4px;
+  padding:0 4px;
 }
 .game-title{
   font-family:'Comfortaa',cursive;
@@ -388,6 +387,8 @@ body:not(.game-active) .help-fab{ display:none; }
   letter-spacing:.5px;
   line-height:1.05;
   white-space:nowrap;
+  width:100%;
+  text-align:center;
 }
 .level-subtitle{
   font-family:'Comfortaa',cursive;
@@ -398,6 +399,8 @@ body:not(.game-active) .help-fab{ display:none; }
   margin-top:3px;
   white-space:nowrap;
   opacity:.9;
+  width:100%;
+  text-align:center;
 }
 
 /* Мобильная адаптация */
@@ -414,7 +417,6 @@ body:not(.game-active) .help-fab{ display:none; }
     text-shadow: 0 1px 4px rgba(0,0,0,.6);
     opacity:1;
   }
-  /* Тёмные кнопки-иконки на мобильных (как в шапке) */
   .icon-btn{
     background:linear-gradient(135deg,#4a525c,#2b3037);
     color:#ffffff;
@@ -506,9 +508,6 @@ body:not(.game-active) .help-fab{ display:none; }
     align-content:start; justify-content:stretch;
   }
   #game .word-chip{text-align:center; font-size:.85rem; padding:7px 8px;}
-
-  /* На десктопе шапка тянется над полем, поэтому выравниваем заголовок ближе к полю */
-  #game .title-block{ align-items:flex-start; text-align:left; padding-left:2px; }
 }
 
 .icon-btn.hint-btn{position:relative;}
@@ -612,7 +611,7 @@ body:not(.game-active) .help-fab{ display:none; }
   .btn{font-size:.92rem; padding:13px 20px; min-height:48px;}
   .icon-btn{min-width:40px; height:40px; font-size:1.05rem;}
   #btnBackGame{font-size:1.25rem;}
-  .game-title{font-size:clamp(1.15rem, 5.8vw, 1.5rem);}
+  .game-title{font-size:clamp(1.1rem, 5.4vw, 1.4rem);}
   .level-subtitle{font-size:.72rem;}
   .level-btn{min-height:48px; font-size:1rem;}
   .level-grid{gap:6px;}
