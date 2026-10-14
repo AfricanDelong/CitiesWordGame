@@ -410,23 +410,21 @@ h2{font-size:clamp(1.25rem, 4.5vw, 1.7rem); letter-spacing:.02em; text-shadow:0 
 }
 /* ============================================================
    ВЫДЕЛЕННЫЕ И НАЙДЕННЫЕ БУКВЫ — ПОВЫШЕННАЯ КОНТРАСТНОСТЬ
-   Фон выделения сделан насыщенным тёмно-янтарным с чёрным текстом,
-   чтобы читалось даже при слабом зрении. Найденные — глубокий
-   синий с белым текстом и усиленной тенью.
    ============================================================ */
 .cell.selecting{
-  background:#e08a00;                 /* насыщенный янтарь */
-  color:#1a1200;                      /* почти чёрный текст */
+  background:#ff8a00;                 /* яркий оранжевый, заметно темнее светлой клетки */
+  color:#000000;                      /* чистый чёрный текст */
   transform:scale(1.10);
-  box-shadow:0 0 0 2px #7a4a00, 0 0 16px rgba(224,138,0,.95);
+  box-shadow:0 0 0 2px #000000, 0 0 14px rgba(255,138,0,1);
   font-weight:900;
-  text-shadow:0 1px 0 rgba(255,255,255,.35);
+  text-shadow:none;
+  position:relative; z-index:2;
 }
 .cell.found{
-  background:linear-gradient(135deg, #1e3a5f 0%, #0f2238 100%);  /* глубокий синий */
+  background:linear-gradient(135deg, #0a2447 0%, #05142b 100%);  /* почти чёрный синий */
   color:#ffffff;
-  text-shadow:0 1px 4px rgba(0,0,0,.85), 0 0 6px rgba(0,0,0,.5);
-  box-shadow:0 0 0 2px #0a1622, 0 0 14px rgba(30,58,95,.75), inset 0 1px 0 rgba(255,255,255,.25);
+  text-shadow:none;
+  box-shadow:0 0 0 1px #000000, inset 0 0 0 1px rgba(255,255,255,.35);
   font-weight:900;
 }
 .cell.wrong{
@@ -438,8 +436,8 @@ h2{font-size:clamp(1.25rem, 4.5vw, 1.7rem); letter-spacing:.02em; text-shadow:0 
 }
 @keyframes shakeCell{0%,100%{transform:translateX(0);}25%{transform:translateX(-3px);}75%{transform:translateX(3px);}}
 @keyframes hintGlow{
-  0%,100%{background:#e08a00; color:#1a1200; box-shadow:0 0 0 2px #7a4a00, 0 0 16px rgba(224,138,0,.95);}
-  50%    {background:#ffd066; color:#1a1200; box-shadow:0 0 0 2px #7a4a00, 0 0 22px rgba(255,208,102,1);}
+  0%,100%{background:#ff8a00; color:#000; box-shadow:0 0 0 2px #000, 0 0 16px rgba(255,138,0,1);}
+  50%    {background:#ffd000; color:#000; box-shadow:0 0 0 2px #000, 0 0 22px rgba(255,208,0,1);}
 }
 .cell.hint{animation:hintGlow .35s ease-in-out 4;}
 
@@ -1029,6 +1027,19 @@ h2,
     animation:bgFlow 18s ease-in-out infinite;
   }
   .cell{background:#3a4048; color:#e8ecf0;}
+  /* Контрастные состояния клеток для тёмной темы:
+     выделение — насыщенный жёлтый с чёрным текстом и белой обводкой,
+     найденные — ярко-синий с белым текстом и белой рамкой.
+     Оба состояния резко отличаются от тёмных клеток #3a4048. */
+  .cell.selecting{
+    background:#ffc400; color:#000000;
+    box-shadow:0 0 0 2px #ffffff, 0 0 14px rgba(255,196,0,1);
+  }
+  .cell.found{
+    background:linear-gradient(135deg, #2f84f0 0%, #1659b8 100%);
+    color:#ffffff;
+    box-shadow:0 0 0 1px #ffffff, inset 0 0 0 1px rgba(255,255,255,.4);
+  }
   .blob{opacity:.28;}
   .sun-glow{opacity:.2;}
   .overlay .box{background:#2a2f36; color:#e8ecf0; border-color:rgba(255,255,255,.15);}
